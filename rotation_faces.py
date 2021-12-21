@@ -7,7 +7,7 @@ import time
 import dlib
 import os
 
-DEBUG = 0
+DEBUG = 1
 
 def convert_and_trim_bb(image, rect):
 	# extract the starting and ending (x, y)-coordinates of the
@@ -33,7 +33,7 @@ def rotate(path_file):
     image = cv2.imread(path_file)
 
     # Resize
-    image_small = imutils.resize(image, width=600)
+    image_small = imutils.resize(image, width=768)
     # Convert the image to grayscale and flip the foreground
     # and background to ensure foreground is now "white" and
     # the background is "black"
@@ -132,7 +132,7 @@ if __name__ == '__main__':
     ## Front image 
     print("******** Test 1 ************")
     print("Rotate:")
-    correct_file = rotate('/home/elf/projects/vt-projects/rotation-id-pics/pics/CD_IMAGEVISREAR.jpg')
+    correct_file = rotate('/home/elf/projects/vt-projects/id-rotation-faces/pics/CD_IMAGEVISREAR.jpg')
     print(correct_file)
     print("Is it the front?:")
     f, p = find_faces(correct_file)
@@ -142,7 +142,7 @@ if __name__ == '__main__':
     ## Back image 
     print("******** Test 2 ************")
     print("Rotate:")
-    correct_file = rotate('/home/elf/projects/vt-projects/rotation-id-pics/pics/CD_IMAGEVIS.jpg')
+    correct_file = rotate('/home/elf/projects/vt-projects/id-rotation-faces/pics/CD_IMAGEVIS.jpg')
     print(correct_file)
     print("Is it the front?:")
     f, p = find_faces(correct_file)
